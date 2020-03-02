@@ -7,16 +7,16 @@ import pandas as pd
 from astropy.io import ascii
 
 # reading the raw data file
-DATA = ascii.read("./DB_QSO_S82.dat")
+DATA = ascii.read('./DB_QSO_S82.dat')
 
 # extracting useful columns from the DATA file
-ID = DATA.field("col1")
+ID = DATA.field('col1')
 RA = DATA.field('col2')
 DEC = DATA.field('col3')
-Z = DATA.field("col7")
-BH_MASS = DATA.field("col8")
+Z = DATA.field('col7')
+BH_MASS = DATA.field('col8')
 
-# converting the ID to an integer 
+# converting the ID to an integer
 ID = [int(i) for i in ID]
 
 # generating columns for the cleaned Stripe 82 data
@@ -25,4 +25,4 @@ X_TRAIN['ra'] = RA
 X_TRAIN['dec'] = DEC
 X_TRAIN['z'] = Z
 X_TRAIN['BH_mass'] = BH_MASS
-X_TRAIN.to_csv("clean_DB_QSO_S82.csv")
+X_TRAIN.to_csv('clean_stripe82.csv')
