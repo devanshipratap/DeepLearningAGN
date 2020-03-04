@@ -15,6 +15,7 @@ if not os.path.exists(ROOT_FOLDER):
     os.mkdir(ROOT_FOLDER)
 
 # Path to folder containing raw light curves
+# Source: http://faculty.washington.edu/ivezic/macleod/qso_dr7/Southern.html (Light curve files)
 PATH = './light_curves/stripe82/'
 FILES = os.listdir(PATH)
 

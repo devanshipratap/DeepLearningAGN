@@ -5,3 +5,7 @@ src/scripts/clean_stripe82.csv
 src/scripts/dr7_bh_Nov19_2013.fits
 src/scripts/clean_dr7.csv
 src/scripts/clean_full_data.csv
+src/scripts/233
+src/scripts/full_train/
+src/scripts/light_curve_to_image.py
+src/scripts/light_curves/
