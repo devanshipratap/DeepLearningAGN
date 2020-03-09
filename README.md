@@ -1,5 +1,5 @@
 # Weighing Black Holes Using Deep Learning
-_**Contributors: Prof. Xin Liu, Joshua Yao-Yu Lin, Devanshi Pratap and Sneh Pandya**_
+_**Contributors: Xin Liu, Joshua Yao-Yu Lin, Devanshi Pratap and Sneh Pandya**_
 
 The goal of this project is to introduce a new, interdisciplinary method in weighing supermassive black holes (SMBH).
 
@@ -10,20 +10,43 @@ There is currently no efficient method for accurately weighing supermassive blac
 
 The goal of this project is to develop an algorithm that weighs SMBH using quasar time series instead of atomic spectra. There are theoretical reasons to believe this relationship between time series data and black hole mass exist, and is pioneered Prof. Xin Liu. The theorized non-linearity motivates the use of DL in this project. The questions addressed are whether current methods in DL can be used to make accurate black hole mass predictions of known data sets.
 
-# Results
-_Will attach images later._
+# Environment
+
+This project is developed for Python3.5 interpreter on linux machine. Using Anaconda virtual environment is recommended.
+
+To install dependencies, simply run:
+
+`pip install -r requirment.txt`
+
+# Data sets
+
+1. SDSS Stripe 82 data: http://faculty.washington.edu/ivezic/macleod/qso_dr7/Southern.html
+2. SDSS DR7 data: http://quasar.astro.illinois.edu/BH_mass/dr7.htm
 
 # Code
-## Getting data in desired format
+### Getting data in desired format
 
-**plot_LC_stripe82.py**: To plot the Stripe 82 Light Curve data in a plot. Also, cleans unphysical data like negative magnitudes.
+`src/scripts/clean_stripe82.py`: 
+Get SDSS Stripe 82 data and clean it. Generate a .csv file of cleaned data (data in a desirable format).
 
-**data_matching.py**: To match the Stripe 82 and the DR7 catalog data to get most relevant information.
+`src/scripts/clean_dr7.py`: 
+Get SDSS DR7 data and clean it. Generate a .csv file of cleaned data (data in a desirable format).
 
-**LC_to_image.py**: To convert the matched data into images.
+`src/scripts/data_matching.py`: 
+To match the Stripe 82 and the DR7 catalog data to get most relevant information. Generate a .csv file of matched data.
 
-## Deep learning
-_Will include files later._
+`src/scripts/light_curve_to_image_full.py`: Convert SDSS Stripe 82 light curves to images as .npy files to be readable by neural network.
+
+`src/scripts/split_data.py`: Module to split data into training and testing sets.
+
+### Deep learning
+`src/scripts/neural_network.py`:
+
+### Visualization
+`src/notebooks/`:
+
+# Results
+_Will attach images later._
 
 # References
 _Will include a detailed list later._

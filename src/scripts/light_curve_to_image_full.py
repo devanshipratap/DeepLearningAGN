@@ -3,7 +3,6 @@ Convert SDSS Stripe 82 light curves to images
 as .npy files to be readable by neural network
 """
 import os
-import cv2
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -75,12 +74,10 @@ for file_name in FILES:
     # Save image as .npy format
     np.save(ROOT_FOLDER + "lc_image_{}.npy".format(file_name), resize_img)
 
-    # Save image as .png file with 0-255 format
-    final_image = np.asarray((resize_img / 40) * 255., dtype=np.int32)
-    cv2.imwrite(ROOT_FOLDER + "lc_image_{}.png".format(file_name), final_image)
+    # You may call png_light_curve() here for a sanity check
+    # png_light_curve()
 
     # Option 2: padding zeros to make the 167 x 100 image -> 224 x 224
-
     Padding_images = np.zeros((224, 224))
     Padding_images[:167, :100] = reshape_img
 
@@ -98,3 +95,12 @@ def plot_light_curve():
     plt.gca().invert_yaxis()
     plt.legend()
     plt.show()
+
+
+def png_light_curve():
+    """
+    Save image as .png file with 0-255 format
+    """
+    final_image = np.asarray((resize_img / 40) * 255., dtype=np.int32)
+    plt.plot(final_image)
+    plt.savefig(ROOT_FOLDER + "lc_image_{}.png".format(file_name))
