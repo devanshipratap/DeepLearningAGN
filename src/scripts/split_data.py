@@ -9,7 +9,7 @@ from sklearn.model_selection import train_test_split
 ROOT_FOLDER = './full_train/'
 TRAIN_FOLDER = 'train/'
 TEST_FOLDER = 'test/'
-FULL_DATA = pd.read_csv('clean_full_data.csv')
+FULL_DATA = pd.read_csv('../../data/clean_full_data.csv')
 
 if not os.path.exists(ROOT_FOLDER + TRAIN_FOLDER):
     os.mkdir(ROOT_FOLDER + TRAIN_FOLDER)
