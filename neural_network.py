@@ -1,3 +1,7 @@
+"""
+script for training a neural network (resnet18) using pytorch
+"""
+
 import torch
 import torch
 import torch.nn as nn
@@ -17,7 +21,9 @@ import datetime
 import torch.utils.model_zoo as model_zoo
 from tensorboardX import SummaryWriter
 
-folder = "./v0812_redshift_aug_Full_train/"
+
+### specify the data folder and hyperparameters for training
+folder = "./uncertainty_Full_train/"
 EPOCH = 60
 glo_batch_size = 10
 test_num_batch = 50
@@ -29,6 +35,9 @@ data_transform = transforms.Compose([
             ])
 target_transform = torch.Tensor
 
+
+
+### using pytorch dataloader to read the data for training and testing
 class BHDataset(Dataset): # torch.utils.data.Dataset
     def __init__(self, root_dir, train=True, transform=None, target_transform=None):
         self.root_dir = root_dir
@@ -52,21 +61,11 @@ class BHDataset(Dataset): # torch.utils.data.Dataset
 
     def __getitem__(self, index):
 
-        #print(self.df['ID'])
         ID = self.df['ID'].iloc[[index]]
         M = self.df['M'].iloc[[index]]
-        #print("ID:", ID.values[0])
         try:
             img_path = self.path + 'LC_images_' + str(ID.values[0]) + '.npy'
             img = np.load(img_path)
-            # sigma_to_noise_ratio = 100
-            # total_flux = sum(sum(img))
-            # N_pix = img.size
-            # sigma_n = total_flux / (np.sqrt(N_pix) * sigma_to_noise_ratio)
-            # gaussian_noise = sigma_n * np.random.randn(img.shape[0], img.shape[1])
-            # img += gaussian_noise
-            # plt.imshow(img)
-            # plt.show()
 
         except:
             img = np.zeros((224, 224))
@@ -80,40 +79,41 @@ class BHDataset(Dataset): # torch.utils.data.Dataset
         return self.df.shape[0]
         #return self.length
 
-
+### train loader load the data only from training set
 train_loader = torch.utils.data.DataLoader(BHDataset(folder, train=True, transform=data_transform, target_transform=target_transform),
                     batch_size = glo_batch_size, shuffle = True
                     )
 
 if __name__ == '__main__':
 
+
+    ### specify the number of output parameters (AGN mass only for example, so there is only one here)
     dset_classes_number = 1
-    net = models.resnet34(pretrained=True)
-    #net = model_zoo.xception(pretrained= True)
+
+    ### using a pretrained resnet18
+    net = models.resnet18(pretrained=True)
+
+    ### modify the last layer of the network to output the parameters we wish to train
     num_ftrs = net.fc.in_features
     net.fc= nn.Linear(in_features=num_ftrs, out_features=dset_classes_number)
-    #loaded_model_path = './saved_model/redshift_aug_resnet18.mdl'
 
+    ### loss function for training
+    loss_fn = nn.MESLoss(reduction='elementwise_mean')
 
-    # if os.path.exists(loaded_model_path):
-    #     net = torch.load(loaded_model_path)
-    #     print('loaded mdl！')
-    loss_fn = nn.L1Loss(reduction='elementwise_mean')
-
+    ### putting the neural network on GPU
     net.cuda()
 
+    ### specify the optimizer and the initial learning rate
     optimizer = optim.Adam(net.parameters(), lr = 2*1e-4)
     tb = SummaryWriter()
 
+    ### set best_accuracy first, and overwrite it during training
     best_accuracy = float("inf")
 
-
-    #if os.path.exists('./saved_model/resnet18.mdl'):
-        #net = torch.load('./saved_model/resnet18.mdl')
-        #print('loaded mdl!')
-
+    ### looping through the training epoch. During each epoch, the neural network goes through the whole trianing set
     for epoch in range(EPOCH):
 
+        ### set the network to training phase
         net.train()
         total_loss = 0.0
         total_counter = 0
@@ -146,11 +146,14 @@ if __name__ == '__main__':
         print(epoch, 'Train loss (averge per batch wise):', total_loss/(total_counter), ' RMS (average per batch wise):', np.array_str(avg_rms, precision=3))
 
         with torch.no_grad():
+
+            ### set the network to evaluating phase
             net.eval()
             total_loss = 0.0
             total_counter = 0
             total_rms = 0
 
+            ### test loader load the data only from test set
             test_loader = torch.utils.data.DataLoader(BHDataset(folder, train=False, transform=data_transform, target_transform=target_transform),
                         batch_size = glo_batch_size, shuffle = True
                         )
@@ -159,7 +162,7 @@ if __name__ == '__main__':
                 data, target = data.float(), target.float()
                 data, target = Variable(data).cuda(), Variable(target).cuda()
 
-                #pred [batch, out_caps_num, out_caps_size, 1]
+                ### getting prediction from neural network
                 pred = net(data)
                 loss = loss_fn(pred, target)
                 square_diff = (pred - target)
@@ -180,10 +183,12 @@ if __name__ == '__main__':
 
             # print test loss and tets rms
             print(epoch, 'Test loss (averge per batch wise):', total_loss/(total_counter), ' RMS (average per batch wise):', np.array_str(avg_rms, precision=3))
+
+            ### save the best fit models
             if total_loss/(total_counter) < best_accuracy:
                 best_accuracy = total_loss/(total_counter)
                 datetime_today = str(datetime.date.today())
-                torch.save(net, './saved_model/' + datetime_today +'mae_k_corr_redshift_aug_resnet34.mdl')
-                print("saved to " + datetime_today + "mae_k_corr_redshift_aug_resnet34.mdl" + " file.")
+                torch.save(net, './saved_model/' + datetime_today +'resnet18.mdl')
+                print("saved to " + datetime_today + "resnet18.mdl" + " file.")
 
     tb.close()
