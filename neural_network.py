@@ -40,6 +40,9 @@ target_transform = torch.Tensor
 ### using pytorch dataloader to read the data for training and testing
 class BHDataset(Dataset): # torch.utils.data.Dataset
     def __init__(self, root_dir, train=True, transform=None, target_transform=None):
+        """
+        Function to specify the path, and lookup tables (csv) for the dataset
+        """
         self.root_dir = root_dir
         self.transform = transform
         self.target_transform = target_transform
@@ -60,6 +63,9 @@ class BHDataset(Dataset): # torch.utils.data.Dataset
             #self.length = TESTING_SAMPLES
 
     def __getitem__(self, index):
+        """
+        Function to obtain the data, and the labels in the given path
+        """
 
         ID = self.df['ID'].iloc[[index]]
         M = self.df['M'].iloc[[index]]
@@ -76,6 +82,9 @@ class BHDataset(Dataset): # torch.utils.data.Dataset
         return image, M.values
 
     def __len__(self):
+        """
+        Function to get the length of the dataframe
+        """
         return self.df.shape[0]
         #return self.length
 
