@@ -8,10 +8,10 @@ from astropy.coordinates import search_around_sky, SkyCoord
 from astropy import units as u
 
 # Reading SDSS Stripe 82 clean data
-S82 = pd.read_csv('./clean_stripe82.csv')
+S82 = pd.read_csv('../../data/clean_stripe82.csv')
 
 # Reading SDSS DR7 clean data
-DR7 = pd.read_csv('./clean_dr7.csv')
+DR7 = pd.read_csv('../../data/clean_dr7.csv')
 
 # Rename the ra, dec coordinates from the 2 different data sets
 DR7 = DR7.rename(index=str, columns={'ra': 'ra_DR7', 'dec': 'dec_DR7'})
@@ -36,4 +36,4 @@ X_TRAIN = X_TRAIN.drop(['BH_mass'], axis=1)
 X_TRAIN = X_TRAIN.astype({'ID': int})
 
 # Generate csv file of combined data sets
-X_TRAIN.to_csv('clean_full_data.csv')
+X_TRAIN.to_csv('../../data/clean_full_data.csv')

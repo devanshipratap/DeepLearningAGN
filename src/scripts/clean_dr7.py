@@ -16,12 +16,14 @@ SDSS_NAME = DATA.field('SDSS_NAME')
 RA = DATA.field('ra')
 DEC = DATA.field('dec')
 M = DATA.field('LOGBH')
+ERR = DATA.field('LOGBH_ERR')
 
 # Generating columns for the cleaned DR7 data
 X_TRAIN = pd.DataFrame(SDSS_NAME, columns=['SDSS_Name'])
 X_TRAIN['ra'] = RA
 X_TRAIN['dec'] = DEC
 X_TRAIN['M'] = M
+X_TRAIN['ERR'] = ERR
 
 # Generate csv file of cleaned DR7 data
-X_TRAIN.to_csv('clean_dr7.csv')
+X_TRAIN.to_csv('../../data/clean_dr7.csv')

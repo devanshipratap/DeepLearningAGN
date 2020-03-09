@@ -27,4 +27,4 @@ X_TRAIN['z'] = Z
 X_TRAIN['BH_mass'] = BH_MASS
 
 # Generate csv file of cleaned Stripe 82 data
-X_TRAIN.to_csv('clean_stripe82.csv')
+X_TRAIN.to_csv('../../data/clean_stripe82.csv')
