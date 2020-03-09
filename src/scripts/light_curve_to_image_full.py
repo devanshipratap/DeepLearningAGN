@@ -9,7 +9,7 @@ import pandas as pd
 from skimage.transform import resize
 
 # Create full_train folder
-ROOT_FOLDER = "./full_train/"
+ROOT_FOLDER = './full_train/'
 if not os.path.exists(ROOT_FOLDER):
     os.mkdir(ROOT_FOLDER)
 
@@ -72,7 +72,7 @@ for file_name in FILES:
     resize_img = resize(resize_img, (224, 224), anti_aliasing=True)
 
     # Save image as .npy format
-    np.save(ROOT_FOLDER + "lc_image_{}.npy".format(file_name), resize_img)
+    np.save(ROOT_FOLDER + 'lc_image_{}.npy'.format(file_name), resize_img)
 
     # You may call png_light_curve() here for a sanity check
     # png_light_curve()
@@ -103,4 +103,4 @@ def png_light_curve():
     """
     final_image = np.asarray((resize_img / 40) * 255., dtype=np.int32)
     plt.plot(final_image)
-    plt.savefig(ROOT_FOLDER + "lc_image_{}.png".format(file_name))
+    plt.savefig(ROOT_FOLDER + 'lc_image_{}.png'.format(file_name))
