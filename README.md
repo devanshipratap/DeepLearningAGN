@@ -51,9 +51,16 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 `src/notebooks/plot_light_curve.ipynb`: Example light curve of u,g,r,i,z bands and respective error information from Stripe 82 dataset and example of an unphysical light curve.  This is usually do to anomaly in telescope observation.  Such light curves are removed for training.
 # Plots
-![](./plots/skymap.png =100x20)
+<img src ="./plots/skymap.png" alt="plot" title="skymap" width="100" height="20" />
 
-![](./plots/light_curve.jpeg =50x10)
+
+<!-- ![](./plots/skymap.png =100x20) -->
+
+![](./plots/light_curve.jpeg#thumbnail)
+
+img[src*="#thumbnail"] {
+   width:150px;
+   height:100px;}
 
 ![](./plots/unphysical_LC.jpeg =100x80)
 
@@ -62,6 +69,10 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 ![](./plots/mass_scatter.png =200x100)
 
 ![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/)
+
+
+<img src="/media/2018/08/kitten.jpg" alt="Kitten"
+title="A cute kitten" width="150" height="100" />
 
 # Results
 _Neural Network Plots here._
