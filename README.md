@@ -54,16 +54,14 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 <img src ="./plots/skymap.png" alt="plot" title="skymap" width="400" height="300" />
 
-<!-- ![](./plots/skymap.png =100x20) -->
+<img src ="./plots/light_curve.jpeg" alt="plot" title="light_curve" width="400" height="300" />
 
-![](./plots/light_curve.jpeg)
+<img src ="./plots/unphysical_LC.jpeg" alt="plot" title="unphysical_LC" width="400" height="300" />
 
+<img src ="./plots/mass_hist.png" alt="plot" title="mass_hist" width="400" height="300" />
 
-![](./plots/unphysical_LC.jpeg =100x80)
+<img src ="./plots/mass_scatter.png" alt="plot" title="mass_scatter" width="400" height="300" />
 
-![](./plots/mass_hist.png =200x150)
-
-![](./plots/mass_scatter.png =200x100)
 
 ![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/)
 
