@@ -51,8 +51,8 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 `src/notebooks/plot_light_curve.ipynb`: Example light curve of u,g,r,i,z bands and respective error information from Stripe 82 dataset and example of an unphysical light curve.  This is usually do to anomaly in telescope observation.  Such light curves are removed for training.
 # Plots
-<img src ="./plots/skymap.png" alt="plot" title="skymap" width="200" height="170" />
 
+<img src ="./plots/skymap.png" alt="plot" title="skymap" width="400" height="300" />
 
 <!-- ![](./plots/skymap.png =100x20) -->
 
