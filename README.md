@@ -45,18 +45,21 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 `src/scripts/neural_network.py`:
 
 ### Visualization
-`src/notebooks/`:
+`src/notebooks/plot_skymap.ipynb`: Skymap of complete Stripe 82 and DR7 datasets in radial ascension vs declination coordinates.
 
+`src/notebooks/plot_mass_and_error.ipynb`:  Statistical analysis to visualize error information across all mass data and statistical analysis to visualize error information as a function of mass. As expected, lower mass SMBH have a wider spread of errors.
+
+`src/notebooks/plot_light_curve.ipynb`: Example light curve of u,g,r,i,z bands and respective error information from Stripe 82 dataset and example of an unphysical light curve.  This is usually do to anomaly in telescope observation.  Such light curves are removed for training.
 # Plots
-![Skymap of complete Stripe 82 and DR7 datasets in radial ascension vs declination coordinates.](./plots/skymap.png)
+![](./plots/skymap.png =100x20)
 
-![Example light curve of u,g,r,i,z bands and respective error information from Stripe 82 dataset.](./plots/light_curve.jpeg)
+![](./plots/light_curve.jpeg =50x10)
 
-![Example of an unphysical light curve.  This is usually do to anomaly in telescope observation.  Such light curves are removed for training.](./plots/unphysical_LC.jpeg)
+![](./plots/unphysical_LC.jpeg =100x80)
 
-![Statistical analysis to visualize error information across all mass data.](./plots/mass_hist.png)
+![](./plots/mass_hist.png =200x150)
 
-![Statistical analysis to visualize error information as a function of mass. As expected, lower mass SMBH have a wider spread of errors.](./plots/mass_scatter.png)
+![](./plots/mass_scatter.png =200x100)
 
 ![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/)
 
