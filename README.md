@@ -18,6 +18,8 @@ To install dependencies, simply run:
 
 `pip install -r requirment.txt`
 
+or consult online documentation for appropriate dependencies.
+
 # Data sets
 
 1. SDSS Stripe 82 data: http://faculty.washington.edu/ivezic/macleod/qso_dr7/Southern.html
@@ -26,13 +28,13 @@ To install dependencies, simply run:
 # Code
 ### Getting data in desired format
 
-`src/scripts/clean_stripe82.py`: 
+`src/scripts/clean_stripe82.py`:
 Get SDSS Stripe 82 data and clean it. Generate a .csv file of cleaned data (data in a desirable format).
 
-`src/scripts/clean_dr7.py`: 
+`src/scripts/clean_dr7.py`:
 Get SDSS DR7 data and clean it. Generate a .csv file of cleaned data (data in a desirable format).
 
-`src/scripts/data_matching.py`: 
+`src/scripts/data_matching.py`:
 To match the Stripe 82 and the DR7 catalog data to get most relevant information. Generate a .csv file of matched data.
 
 `src/scripts/light_curve_to_image_full.py`: Convert SDSS Stripe 82 light curves to images as .npy files to be readable by neural network.
@@ -45,8 +47,21 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 ### Visualization
 `src/notebooks/`:
 
+# Plots
+![Skymap of complete Stripe 82 and DR7 datasets in radial ascension vs declination coordinates.](./plots/skymap.png)
+
+![Example light curve of u,g,r,i,z bands and respective error information from Stripe 82 dataset.](./plots/light_curve.jpeg)
+
+![Example of an unphysical light curve.  This is usually do to anomaly in telescope observation.  Such light curves are removed for training.](./plots/unphysical_LC.jpeg)
+
+![Statistical analysis to visualize error information across all mass data.](./plots/mass_hist.png)
+
+![Statistical analysis to visualize error information as a function of mass. As expected, lower mass SMBH have a wider spread of errors.](./plots/mass_scatter.png)
+
+![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/)
+
 # Results
-_Will attach images later._
+_Neural Network Plots here._
 
 # References
 _Will include a detailed list later._
