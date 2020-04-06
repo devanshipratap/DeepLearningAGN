@@ -56,17 +56,17 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 `src/notebooks/morsecode.ipynb`
 # Plots
 
-<img src ="./plots/skymap.png" alt="plot" title="skymap" width="450" height="350" />
+<img src ="./plots/skymap.png" alt="plot" title="skymap" width="400" height="300" />
 
-<img src ="./plots/mass_hist.png" alt="plot" title="mass_hist" width="450" height="350" />
+<img src ="./plots/mass_hist.png" alt="plot" title="mass histogram" width="400" height="300" />
 
-<img src ="./plots/mass_scatter.png" alt="plot" title="mass_scatter" width="450" height="350" />
+<img src ="./plots/mass_scatter.png" alt="plot" title="mass scatter" width="400" height="300" />
 
-<img src ="./plots/light_curve.png" alt="plot" title="light_curve" width="450" height="350" />
+<img src ="./plots/light_curve.png" alt="plot" title="light curve" width="400" height="300" />
 
-<img src ="./plots/unphysical_LC.png" alt="plot" title="unphysical_LC" width="450" height="350" />
+<img src ="./plots/unphysical_LC.png" alt="plot" title="unphysical LC" width="400" height="300" />
 
-<img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="450" height="350" />
+<img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="400" height="300" />
 
 
 <!-- ![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/) -->
