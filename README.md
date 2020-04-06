@@ -16,7 +16,7 @@ This project is developed for Python3.5 interpreter on linux machine. Using Anac
 
 To install dependencies, simply run:
 
-`pip install -r requirment.txt`
+`pip install -r requirement.txt`
 
 or consult online documentation for appropriate dependencies.
 
@@ -50,24 +50,27 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 `src/notebooks/plot_mass_and_error.ipynb`:  Statistical analysis to visualize error information across all mass data and statistical analysis to visualize error information as a function of mass. As expected, lower mass SMBH have a wider spread of errors.
 
 `src/notebooks/plot_light_curve.ipynb`: Example light curve of u,g,r,i,z bands and respective error information from Stripe 82 dataset and example of an unphysical light curve.  This is usually do to anomaly in telescope observation.  Such light curves are removed for training.
+
+`src/notebooks/plot_simulated_light_curve.ipynb`:  Example of a simulated light curve using one standard deviation error from error information present in DR7 & S82 datasets.  Simulation assumes identical ID and redshift information from source light curve, and simulated new band magnitudes.
+
+`src/notebooks/morsecode.ipynb`
 # Plots
 
-<img src ="./plots/skymap.png" alt="plot" title="skymap" width="400" height="300" />
+<img src ="./plots/skymap.png" alt="plot" title="skymap" width="450" height="350" />
 
-<img src ="./plots/light_curve.jpeg" alt="plot" title="light_curve" width="400" height="300" />
+<img src ="./plots/mass_hist.png" alt="plot" title="mass_hist" width="450" height="350" />
 
-<img src ="./plots/unphysical_LC.jpeg" alt="plot" title="unphysical_LC" width="400" height="300" />
+<img src ="./plots/mass_scatter.png" alt="plot" title="mass_scatter" width="450" height="350" />
 
-<img src ="./plots/mass_hist.png" alt="plot" title="mass_hist" width="400" height="300" />
+<img src ="./plots/light_curve.png" alt="plot" title="light_curve" width="450" height="350" />
 
-<img src ="./plots/mass_scatter.png" alt="plot" title="mass_scatter" width="400" height="300" />
+<img src ="./plots/unphysical_LC.png" alt="plot" title="unphysical_LC" width="450" height="350" />
+
+<img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="450" height="350" />
 
 
-![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/)
+<!-- ![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/) -->
 
-
-<img src="/media/2018/08/kitten.jpg" alt="Kitten"
-title="A cute kitten" width="150" height="100" />
 
 # Results
 _Neural Network Plots here._
