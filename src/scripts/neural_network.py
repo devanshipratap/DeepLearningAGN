@@ -104,7 +104,7 @@ if __name__ == '__main__':
     NET.fc = nn.Linear(in_features=NUM_FTRS, out_features=DSET_CLASSES_NUMBER)
 
     # Loss function for training
-    LOSS_FN = nn.MESLoss(reduction='elementwise_mean')
+    LOSS_FN = nn.MSELoss(reduction='elementwise_mean')
 
     # Putting the neural network on GPU
     NET.cuda()
