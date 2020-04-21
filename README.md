@@ -83,4 +83,7 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 <img src ="./plots/mass_results.png" alt="plot" title="results for mass" width="400" height="300" />
 
 # References
-_Will include a detailed list later._
+
+1. Pasquet-Itam, J., and J. Pasquet. “Deep Learning Approach for Classifying, Detecting Andpredicting Photometric Redshifts of Quasars in the Sloan DigitalSky Survey Stripe 82.” Astronomy & Astrophysics, vol. 611, 2018
+
+2. Sun, Mouyuan et al. “Corona-Heated Accretion-Disk Reprocessing: A Physical Model to Decipher the Melody of AGN UV/Optical Twinkling.” The Astrophysical Journal 891.2 (2020): 178. Crossref. Web.
