@@ -42,7 +42,7 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 `src/scripts/split_data.py`: Module to split data into training and testing sets.
 
 ### Deep learning
-`src/scripts/neural_network.py`:
+`src/scripts/neural_network.py` : Our convolutional neural network for predicting black hole mass
 
 ### Visualization
 `src/notebooks/plot_skymap.ipynb`: Skymap of complete Stripe 82 and DR7 datasets in radial ascension vs declination coordinates.
@@ -53,7 +53,12 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 `src/notebooks/plot_simulated_light_curve.ipynb`:  Example of a simulated light curve using one standard deviation error from error information present in DR7 & S82 datasets.  Simulation assumes identical ID and redshift information from source light curve, and simulated new band magnitudes.
 
-`src/notebooks/morsecode.ipynb`
+`src/notebooks/plot_2d_light_curve_image.ipynb` : Example of a 224 x 224 numpy array visualized as a image that will be fed into our neural network.  These images numpy images encode the same information as our light curves.
+
+`src/notebooks/plot_z_simulated_results.ipynb` : Results for our neural network for redshift using our 10x simulated dataset.
+
+`src/notebooks/plot_mass_simulated_results.ipynb` : Results for our neural network for mass using our 10x simulated dataset.
+
 # Plots
 
 <img src ="./plots/skymap.png" alt="plot" title="skymap" width="400" height="300" />
@@ -68,12 +73,14 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 <img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="400" height="300" />
 
-
-<!-- ![Example of "morse code" image that neural network intakes. NN images contain all information as previous light curves but in an .npy format that the neural network can understand.](./plots/) -->
+<img src ="./plots/morse_code.png" alt="plot" title="2D light curve image" width="400" height="300" />
 
 
 # Results
-_Neural Network Plots here._
+
+<img src ="./plots/z_results" alt="plot" title="results for redshift" width="400" height="300" />
+
+<img src ="./plots/mass_results" alt="plot" title="results for mass" width="400" height="300" />
 
 # References
 _Will include a detailed list later._
