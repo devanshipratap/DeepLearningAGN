@@ -1,5 +1,5 @@
 # Weighing Black Holes Using Deep Learning
-_**Contributors: Xin Liu, Joshua Yao-Yu Lin, Devanshi Pratap and Sneh Pandya**_
+_**Contributors: Joshua Yao-Yu Lin, Devanshi Pratap, Sneh Pandya, Xin Liu**_
 
 The goal of this project is to introduce a new, interdisciplinary method in weighing supermassive black holes (SMBH).
 
