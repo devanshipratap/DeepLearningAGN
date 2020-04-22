@@ -14,7 +14,6 @@ import torch.utils.model_zoo as model_zoo
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import lenstronomy.Util.image_util as image_util
 from tqdm import tqdm
 from tensorboardX import SummaryWriter
 from torch.utils.data import Dataset

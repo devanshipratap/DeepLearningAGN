@@ -7,5 +7,5 @@ sys
 datetime
 torch
 torchvision
-lenstronomy
+seaborn
 
