@@ -16,7 +16,7 @@ This project is developed for Python3.5 interpreter on linux machine. Using Anac
 
 To install dependencies, simply run:
 
-`pip install -r requirment.txt`
+`pip install -r requirement.txt`
 
 # Data sets
 
