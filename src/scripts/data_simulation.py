@@ -15,7 +15,7 @@ SAVE_PATH = './simulated_data/'
 if not os.path.exists(SAVE_PATH):
     os.mkdir(SAVE_PATH)
 
-def saving_images(df, file_name):
+def saving_images(df, file_name, seed):
     """
     Save the simulated light curve as a .npy file
     """
@@ -46,7 +46,7 @@ def saving_images(df, file_name):
     # Resize images to 224 x 224 (same as ImageNet)
     resize_img = reshape_img.copy()
     resize_img = resize(resize_img, (224, 224))
-    np.save(SAVE_PATH + 'LC_images_{}.npy'.format(file_name), resize_img)
+    np.save(SAVE_PATH + 'seed_' + str(seed) +'_LC_images_{}.npy'.format(file_name), resize_img)
 
     del images, reshape_img, resize_img
 
@@ -68,7 +68,7 @@ for seed in range(10):
         # Converting type to float64
         for j in range(17):
             data_frame[j] = pd.to_numeric(data_frame[j])
-        saving_images(data_frame, file)
+        saving_images(data_frame, file, seed)
 
         # For testing:
         # if idx >= 10:
