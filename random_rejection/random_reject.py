@@ -45,11 +45,11 @@ for file_name in FILES:
     df_z = df_z.sample(frac=1 - REMOVE_PERCENT, random_state=SEED)
 
     # sort in ascending order
-    # df_u = df_u.sort_values(by='MJD_u')
-    # df_g = df_g.sort_values(by='MJD_g')
-    # df_r = df_r.sort_values(by='MJD_r')
-    # df_i = df_i.sort_values(by='MJD_i')
-    # df_z = df_z.sort_values(by='MJD_z')
+    df_u = df_u.sort_values(by='MJD_u')
+    df_g = df_g.sort_values(by='MJD_g')
+    df_r = df_r.sort_values(by='MJD_r')
+    df_i = df_i.sort_values(by='MJD_i')
+    df_z = df_z.sort_values(by='MJD_z')
 
     # Gather the 5 band data and set mjd init = 0
     u_data = round(df_u['MJD_u']) - round(df_u['MJD_u'].iloc[0])
@@ -90,4 +90,3 @@ for file_name in FILES:
 
     # save numpy files
     np.save(ROOT_FOLDER + 'lc_image_{}.npy'.format(file_name), reshape_img)
-    
