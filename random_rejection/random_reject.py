@@ -19,7 +19,7 @@ REMOVE_PERCENT = .1
 # Read light curve files
 for file_name in FILES:
 
-    with open('/Users/SnehPandya/Desktop/Black_Hole_NN/raw_data/original_LC/70', 'r') as f:  # opening LC files
+    with open('/Users/SnehPandya/Desktop/Black_Hole_NN/raw_data/original_LC/', 'r') as f:  # opening LC files
         next(f)  # skip first row
         df = pd.DataFrame(l.rstrip().split() for l in f)  # define dataframe
 
