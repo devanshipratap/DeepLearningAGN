@@ -19,7 +19,7 @@ REMOVE_PERCENT = .1
 # Read light curve files
 for file_name in FILES:
 
-    with open('/Users/SnehPandya/Desktop/Black_Hole_NN/raw_data/original_LC/', 'r') as f:  # opening LC files
+    with open(PATH + file_name, 'r') as f:  # opening LC files
         next(f)  # skip first row
         df = pd.DataFrame(l.rstrip().split() for l in f)  # define dataframe
 
@@ -76,17 +76,18 @@ for file_name in FILES:
     for i, day in enumerate(z_data):
         Images[4, int(day)] += df_z['z'].iloc[i]
 
-    # Reshape image into 167 x 100
     reshape_img = Images.reshape(167, 100)
 
-    # padding zeros to make the 167 x 100 image -> 224 x 224
-    Padding_images = np.zeros((224, 224))
-    Padding_images[:167, :100] = reshape_img
+    # Reshape image into 167 x 100
+    resize_img = reshape_img.copy()
+    resize_img = resize(reshape_img, (224, 224), anti_aliasing=True)
 
-    final_image = np.asarray((reshape_img / 40) * 255., dtype=np.int32)
-    # sanity check for how image looks, doesnt work at the moment
-    # plt.plot(final_image)
-    # plt.show()
+
+    # sanity check for how image looks
+    final_image = np.asarray((resize_img / 40) * 255., dtype=np.int32)
+    plt.imshow(final_image)
+    plt.colorbar()
+    plt.show()
 
     # save numpy files
     np.save(ROOT_FOLDER + 'lc_image_{}.npy'.format(file_name), reshape_img)
