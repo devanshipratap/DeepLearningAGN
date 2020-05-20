@@ -84,10 +84,10 @@ for file_name in FILES:
 
 
     # sanity check for how image looks
-    final_image = np.asarray((resize_img / 40) * 255., dtype=np.int32)
-    plt.imshow(final_image)
-    plt.colorbar()
-    plt.show()
+    # final_image = np.asarray((resize_img / 40) * 255., dtype=np.int32)
+    # plt.imshow(final_image)
+    # plt.colorbar()
+    # plt.show()
 
     # save numpy files
-    np.save(ROOT_FOLDER + 'lc_image_{}.npy'.format(file_name), reshape_img)
+    np.save(ROOT_FOLDER + str(REMOVE_PERCENT) + '_lc_image_{}.npy'.format(file_name), reshape_img)
