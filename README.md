@@ -84,9 +84,9 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 <img src ="./plots/mass_results.png" alt="plot" title="results for mass" width="400" height="300" />
 
-<img src ="./joint_plots/mass_mass.png" alt="plot" title="results for mass" width="400" height="300" />
+<img src ="./joint_plots/mass_mass.png" alt="plot" title="results for mass" width="400" height="400" />
 
-<img src ="./joint_plots/z_z.png" alt="plot" title="results for redshift" width="400" height="300" />
+<img src ="./joint_plots/z_z.png" alt="plot" title="results for redshift" width="400" height="400" />
 # References
 
 1. Pasquet-Itam, J., and J. Pasquet. “Deep Learning Approach for Classifying, Detecting Andpredicting Photometric Redshifts of Quasars in the Sloan DigitalSky Survey Stripe 82.” Astronomy & Astrophysics, vol. 611, 2018
