@@ -63,28 +63,28 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 # Plots
 
-<img src ="./plots/skymap.png" alt="plot" title="skymap" width="500" height="400" />
+<img src ="./plots/skymap.png" alt="plot" title="skymap" width="600" height="400" />
 
 <img src ="./plots/mass_hist.png" alt="plot" title="mass histogram" width="600" height="400" />
 
-<img src ="./plots/mass_scatter.png" alt="plot" title="mass scatter" width="800" height="600" />
+<img src ="./plots/mass_scatter.png" alt="plot" title="mass scatter" width="600" height="400" />
 
-<img src ="./plots/light_curve.png" alt="plot" title="light curve" width="400" height="300" />
+<img src ="./plots/light_curve.png" alt="plot" title="light curve" width="600" height="400" />
 
-<img src ="./plots/unphysical_LC.png" alt="plot" title="unphysical LC" width="400" height="300" />
+<img src ="./plots/unphysical_LC.png" alt="plot" title="unphysical LC" width="600" height="400" />
 
-<img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="400" height="300" />
+<img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="600" height="400" />
 
-<img src ="./plots/morse_code.png" alt="plot" title="2D light curve image" width="400" height="300" />
+<img src ="./plots/morse_code.png" alt="plot" title="2D light curve image" width="600" height="400" />
 
 
 # Results
 
-<img src ="./plots/z_results.png" alt="plot" title="results for redshift" width="400" height="300" />
+<img src ="./plots/z_results.png" alt="plot" title="results for redshift" width="600" height="400" />
 
-<img src ="./plots/mass_results.png" alt="plot" title="results for mass" width="400" height="300" />
+<img src ="./plots/mass_results.png" alt="plot" title="results for mass" width="600" height="400" />
 
-<img src ="./plots/mass_results_z.png" alt="plot" title="results for mass" width="400" height="300" />
+<img src ="./plots/mass_results_z.png" alt="plot" title="results for mass" width="600" height="400" />
 
 <img src ="./joint_plots/mass_mass.png" alt="plot" title="results for mass" width="400" height="400" />
 
