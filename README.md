@@ -86,9 +86,9 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 <img src ="./plots/mass_results_z.png" alt="plot" title="results for mass" width="600" height="400" />
 
-<img src ="./joint_plots/mass_mass.png" alt="plot" title="results for mass" width="500" height="500" />
+<img src ="./plots/mass_mass.png" alt="plot" title="results for mass" width="500" height="500" />
 
-<img src ="./joint_plots/z_z.png" alt="plot" title="results for redshift" width="500" height="500" />
+<img src ="./plots/z_z.png" alt="plot" title="results for redshift" width="500" height="500" />
 
 # References
 
