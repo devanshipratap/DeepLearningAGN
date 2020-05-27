@@ -63,9 +63,9 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 # Plots
 
-<img src ="./plots/skymap.png" alt="plot" title="skymap" width="800" height="600" />
+<img src ="./plots/skymap.png" alt="plot" title="skymap" width="500" height="400" />
 
-<img src ="./plots/mass_hist.png" alt="plot" title="mass histogram" width="800" height="600" />
+<img src ="./plots/mass_hist.png" alt="plot" title="mass histogram" width="600" height="400" />
 
 <img src ="./plots/mass_scatter.png" alt="plot" title="mass scatter" width="800" height="600" />
 
