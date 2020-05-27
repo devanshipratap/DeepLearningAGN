@@ -1,5 +1,5 @@
 # Weighing Black Holes Using Deep Learning
-_**Contributors: Xin Liu, Joshua Yao-Yu Lin, Devanshi Pratap and Sneh Pandya**_
+_**Contributors: Joshua Yao-Yu Lin, Devanshi Pratap, Sneh Pandya, Xin Liu**_
 
 The goal of this project is to introduce a new, interdisciplinary method in weighing supermassive black holes (SMBH).
 
@@ -18,6 +18,8 @@ To install dependencies, simply run:
 
 `pip install -r requirement.txt`
 
+or consult online documentation for appropriate dependencies.
+
 # Data sets
 
 1. SDSS Stripe 82 data: http://faculty.washington.edu/ivezic/macleod/qso_dr7/Southern.html
@@ -26,27 +28,70 @@ To install dependencies, simply run:
 # Code
 ### Getting data in desired format
 
-`src/scripts/clean_stripe82.py`: 
+`src/scripts/clean_stripe82.py`:
 Get SDSS Stripe 82 data and clean it. Generate a .csv file of cleaned data (data in a desirable format).
 
-`src/scripts/clean_dr7.py`: 
+`src/scripts/clean_dr7.py`:
 Get SDSS DR7 data and clean it. Generate a .csv file of cleaned data (data in a desirable format).
 
-`src/scripts/data_matching.py`: 
+`src/scripts/data_matching.py`:
 To match the Stripe 82 and the DR7 catalog data to get most relevant information. Generate a .csv file of matched data.
 
 `src/scripts/light_curve_to_image_full.py`: Convert SDSS Stripe 82 light curves to images as .npy files to be readable by neural network.
 
 `src/scripts/split_data.py`: Module to split data into training and testing sets.
 
+`src/scripts/random_reject.py`: Script to randomly reject data points from light curve files and generate new numpy files.  Used to test lower-end benchmark of when network stops performing well.
+
 ### Deep learning
-`src/scripts/neural_network.py`:
+`src/scripts/neural_network.py` : Our convolutional neural network for predicting black hole mass
 
 ### Visualization
-`src/notebooks/`:
+`src/notebooks/plot_skymap.ipynb`: Skymap of complete Stripe 82 and DR7 datasets in radial ascension vs declination coordinates.
+
+`src/notebooks/plot_mass_and_error.ipynb`:  Statistical analysis to visualize error information across all mass data and statistical analysis to visualize error information as a function of mass. As expected, lower mass SMBH have a wider spread of errors.
+
+`src/notebooks/plot_light_curve.ipynb`: Example light curve of u,g,r,i,z bands and respective error information from Stripe 82 dataset and example of an unphysical light curve.  This is usually do to anomaly in telescope observation.  Such light curves are removed for training.
+
+`src/notebooks/plot_simulated_light_curve.ipynb`:  Example of a simulated light curve using one standard deviation error from error information present in DR7 & S82 datasets.  Simulation assumes identical ID and redshift information from source light curve, and simulated new band magnitudes.
+
+`src/notebooks/plot_2d_light_curve_image.ipynb` : Example of a 224 x 224 numpy array visualized as a image that will be fed into our neural network.  These images numpy images encode the same information as our light curves.
+
+`src/notebooks/plot_z_simulated_results.ipynb` : Results for our neural network for redshift using our 10x simulated dataset.
+
+`src/notebooks/plot_mass_simulated_results.ipynb` : Results for our neural network for mass using our 10x simulated dataset.
+
+# Plots
+
+<img src ="./plots/skymap.png" alt="plot" title="skymap" width="600" height="400" />
+
+<img src ="./plots/mass_hist.png" alt="plot" title="mass histogram" width="600" height="400" />
+
+<img src ="./plots/mass_scatter.png" alt="plot" title="mass scatter" width="600" height="400" />
+
+<img src ="./plots/light_curve.png" alt="plot" title="light curve" width="600" height="400" />
+
+<img src ="./plots/unphysical_LC.png" alt="plot" title="unphysical LC" width="600" height="400" />
+
+<img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="600" height="400" />
+
+<img src ="./plots/morse_code.png" alt="plot" title="2D light curve image" width="500" height="500" />
+
 
 # Results
-_Will attach images later._
+
+<img src ="./plots/z_results.png" alt="plot" title="results for redshift" width="600" height="400" />
+
+<img src ="./plots/mass_results.png" alt="plot" title="results for mass" width="600" height="400" />
+
+<img src ="./plots/mass_results_z.png" alt="plot" title="results for mass" width="600" height="400" />
+
+<img src ="./plots/mass_mass.png" alt="plot" title="results for mass" width="500" height="500" />
+
+<img src ="./plots/z_z.png" alt="plot" title="results for redshift" width="500" height="500" />
 
 # References
-_Will include a detailed list later._
+
+1. Pasquet-Itam, J., and J. Pasquet. “Deep Learning Approach for Classifying, Detecting Andpredicting Photometric Redshifts of Quasars in the Sloan DigitalSky Survey Stripe 82.” Astronomy & Astrophysics, vol. 611, 2018
+
+2. Sun, Mouyuan et al. “Corona-Heated Accretion-Disk Reprocessing: A Physical Model to Decipher the Melody of AGN UV/Optical Twinkling.” The Astrophysical Journal 891.2 (2020): 178. Crossref. Web.
