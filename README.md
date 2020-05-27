@@ -75,7 +75,7 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 <img src ="./plots/simulated_LC.png" alt="plot" title="simulated light curve" width="600" height="400" />
 
-<img src ="./plots/morse_code.png" alt="plot" title="2D light curve image" width="600" height="400" />
+<img src ="./plots/morse_code.png" alt="plot" title="2D light curve image" width="600" height="600" />
 
 
 # Results
@@ -88,7 +88,7 @@ To match the Stripe 82 and the DR7 catalog data to get most relevant information
 
 <img src ="./joint_plots/mass_mass.png" alt="plot" title="results for mass" width="400" height="400" />
 
-<img src ="./joint_plots/z_z.png" alt="plot" title="results for redshift" width="400" height="400" />
+<img src ="./joint_plots/z_z.png" alt="plot" title="results for redshift" width="600" height="600" />
 
 # References
 
