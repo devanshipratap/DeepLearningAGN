@@ -31,12 +31,12 @@ class DataAnalysis():
     # pearson summary statistics
     def pearson(self):
         pearson = stats.pearsonr(self.df_X, self.df_Y)
-        print('p-value:', pearson[0], ', Pearson coefficient:', pearson[1])
+        print('p-value:', pearson[1], ', Pearson coefficient:', pearson[0])
 
     # spearman summary statistics
     def spearman(self):
         spearman = stats.spearmanr(self.df_X, self.df_Y)
-        print('p-value:', spearman[0], ', Spearman coefficient:', spearman[1])
+        print('p-value:', spearman[1], ', Spearman coefficient:', spearman[0])
 
     # Root Mean Squared Error
     def RMSE(self):
@@ -76,10 +76,14 @@ class DataAnalysis():
 ### end of class ###
 
 
-path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/data/2020-05-26Mass_nll_b1.csv'
-ground_truth = 'Mass_ground_truth'
-prediction = 'Mass_prediction'
-error = 'Mass_error'
+path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/stats_for_joshua/v0526_mass_nll.csv'
+ground_truth = 'mass_ground_truth'
+prediction = 'mass_prediction'
+error = 'mass_error_prediction'
 
 NN_results = DataAnalysis(path_to_csv, ground_truth, prediction, error)
-NN_results.plot()
+NN_results.pearson()
+NN_results.spearman()
+NN_results.RMSE()
+NN_results.OLF(1)
+NN_results.OLF(2)
