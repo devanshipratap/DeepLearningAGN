@@ -7,6 +7,8 @@ from scipy import stats
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
+from math import sqrt
+from sklearn.metrics import mean_squared_error
 
 # defining DataAnalysis class
 
@@ -38,12 +40,10 @@ class DataAnalysis():
 
     # Root Mean Squared Error
     def RMSE(self):
-        for i in range(len(self.df)):
-            result = np.mean((self.df_X - self.df_Y)**2)
-            result = result ** (1 / 2)
-        print('RMSE is', result)
+        RMSE = sqrt(mean_squared_error(self.df_X, self.df_Y))
+        print('RMSE is', RMSE)
 
-    # Ooutlier Fraction
+    # Outlier Fraction
     def OLF(self, n_sigma):
         count = 0
         for i in range(len(self.df)):
@@ -59,17 +59,18 @@ class DataAnalysis():
 
     # plotting results
     def plot(self):
+        plt.figure(figsize=(8, 5))
         sns.set_context('paper')
         sns.set(font='times new roman')
-        plt.scatter(self.df_X, self.df_Y, color='black',
-                    alpha=.5, s=10, zorder=1)
+        scatter = plt.scatter(self.df_X, self.df_Y, color='black',
+                              alpha=.5, s=10, zorder=1)
         plt.errorbar(self.df_X, self.df_Y, yerr=self.df_ERROR,
                      ls='', ecolor='grey', alpha=.2, zorder=0)
-        plt.plot(self.df_X, self.df_X, color='blue', zorder=2)
-        plt.title(str(self.X) + ' vs ' + str(self.Y))
+        line = plt.plot(self.df_X, self.df_X, color='blue', zorder=2)
+        plt.title(str(self.Y) + ' vs ' + str(self.X))
         plt.xlabel(str(self.X))
         plt.ylabel(str(self.Y))
-        plt.legend()
+        plt.legend((scatter, line), labels=('Ground truth', 'NN prediction'))
         plt.show()
 
 ### end of class ###
@@ -80,5 +81,5 @@ ground_truth = 'Mass_ground_truth'
 prediction = 'Mass_prediction'
 error = 'Mass_error'
 
-csv = DataAnalysis(path_to_csv, ground_truth, prediction, error)
-print(csv.OLF(1))
+NN_results = DataAnalysis(path_to_csv, ground_truth, prediction, error)
+NN_results.plot()
