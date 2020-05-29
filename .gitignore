@@ -3,5 +3,4 @@ src/.DS_Store
 src/scripts/.DS_Store
 src/scripts/dr7_bh_Nov19_2013.fits
 src/scripts/233
-src/scripts/light_curve_to_image.py
 src/scripts/light_curves/
