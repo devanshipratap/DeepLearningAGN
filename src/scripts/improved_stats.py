@@ -67,7 +67,7 @@ class DataAnalysis():
         plt.errorbar(self.df_X, self.df_Y, yerr=self.df_ERROR,
                      ls='', ecolor='grey', alpha=.2, zorder=0)
         line = plt.plot(self.df_X, self.df_X, color='blue', zorder=2)
-        plt.title(str(self.Y) + ' vs ' + str(self.X))
+        plt.title(str(self.PATH))
         plt.xlabel(str(self.X))
         plt.ylabel(str(self.Y))
         plt.legend((scatter, line), labels=('Ground truth', 'NN prediction'))
@@ -76,14 +76,15 @@ class DataAnalysis():
 ### end of class ###
 
 
-path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/stats_for_joshua/v0526_mass_nll.csv'
-ground_truth = 'mass_ground_truth'
-prediction = 'mass_prediction'
-error = 'mass_error_prediction'
+path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/stats_for_joshua/2020-05-29Mass_nll_b1_v2.csv'
+ground_truth = 'Mass_ground_truth'
+prediction = 'Mass_prediction'
+error = 'Mass_error_prediction'
 
 NN_results = DataAnalysis(path_to_csv, ground_truth, prediction, error)
-NN_results.pearson()
-NN_results.spearman()
-NN_results.RMSE()
-NN_results.OLF(1)
-NN_results.OLF(2)
+# NN_results.pearson()
+# NN_results.spearman()
+# NN_results.RMSE()
+# NN_results.OLF(1)
+# NN_results.OLF(2)
+NN_results.plot()
