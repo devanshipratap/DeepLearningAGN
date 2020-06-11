@@ -42,10 +42,6 @@ df['M_11_11.5'] = df.apply(lambda row: row.M_tau if (11 < row.Mass_ground_truth 
 df['M_11.5_12'] = df.apply(lambda row: row.M_tau if (11.5 < row.Mass_ground_truth < 12) else np.nan, axis=1).median()
 df['M_12_12.5'] = df.apply(lambda row: row.M_tau if (12 < row.Mass_ground_truth < 12.5 ) else np.nan, axis=1).median()
 df['M_12.5_13'] = df.apply(lambda row: row.M_tau if (12.5 < row.Mass_ground_truth < 13 ) else np.nan, axis=1).median()
-df['error_up_median'] = df.apply(lambda row: row.m_err_hi if (12.5 < row.Mass_ground_truth < 13 ) else np.nan, axis=1)
-df['error_lo_median'] = df.apply(lambda row: row.m_err_low if (12.5 < row.Mass_ground_truth < 13 ) else np.nan, axis=1)
-print(df['error_lo_median'].median())
-print(df['error_lo_median'].median())
 
 
 # df.to_csv('/Users/SnehPandya/Desktop/DeepLearningAGN/data/running_median_fixed.csv')
