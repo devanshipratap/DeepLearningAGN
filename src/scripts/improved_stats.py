@@ -29,19 +29,27 @@ class DataAnalysis():
         self.df_ERROR = self.df[self.ERROR]
 
     # pearson summary statistics
+    def pvalue(self):
+        pearson = stats.pearsonr(self.df_X, self.df_Y)
+        return pearson[1]
+
     def pearson(self):
         pearson = stats.pearsonr(self.df_X, self.df_Y)
-        print('p-value:', pearson[1], ', Pearson coefficient:', pearson[0])
+        return pearson[0]
 
     # spearman summary statistics
     def spearman(self):
         spearman = stats.spearmanr(self.df_X, self.df_Y)
-        print('p-value:', spearman[1], ', Spearman coefficient:', spearman[0])
+        return spearman[0]
 
     # Root Mean Squared Error
     def RMSE(self):
         RMSE = sqrt(mean_squared_error(self.df_X, self.df_Y))
-        print('RMSE is', RMSE)
+        return RMSE
+
+    def mean_error(self):
+        mean_error = self.df_ERROR.mean()
+        return mean_error
 
     # Outlier Fraction
     def OLF(self, n_sigma):
@@ -54,8 +62,7 @@ class DataAnalysis():
             if point >= lower_bound and point <= upper_bound:
                 count += 1
         OLF = 1 - (count / len(self.df))
-        print('Outlier Fraction is', float(OLF) * 100,
-              '%', 'within', n_sigma, 'standard deviation')
+        return OLF
 
     # plotting results
     def plot(self):
@@ -73,18 +80,30 @@ class DataAnalysis():
         plt.legend((scatter, line), labels=('Ground truth', 'NN prediction'))
         plt.show()
 
+    def joint_plot(self):
+        sns.jointplot(self.df_X, self.df_Y, color='darkblue', kind='reg',
+                  scatter_kws={'s': 10, 'alpha': .5}, line_kws={'color': 'black'})
+        plt.xlim(7,10.5)
+        plt.ylim(7,10)
+        plt.xlabel('Mass Ground Truth')
+        plt.ylabel('Mass Prediction')
+        plt.annotate('Pearson = ' + str(self.pearson())[0:6] + '\nSpearman = ' + str(self.spearman())[0:6] + '\nP-Value = ' + str(self.pvalue())[0:6], xy=(.1, .9),
+                 xycoords='axes fraction', size=10)
+        plt.show()
 ### end of class ###
 
 
-path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/stats_for_joshua/2020-05-29Mass_nll_b1_v2.csv'
+path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/data/merged_simulated2.csv'
 ground_truth = 'Mass_ground_truth'
 prediction = 'Mass_prediction'
-error = 'Mass_error_prediction'
+error = 'z_ground_truth'
 
 NN_results = DataAnalysis(path_to_csv, ground_truth, prediction, error)
-# NN_results.pearson()
-# NN_results.spearman()
-# NN_results.RMSE()
-# NN_results.OLF(1)
-# NN_results.OLF(2)
+NN_results.pearson()
+NN_results.spearman()
+NN_results.RMSE()
+NN_results.OLF(1)
+NN_results.OLF(2)
+NN_results.mean_error()
 NN_results.plot()
+NN_results.joint_plot()

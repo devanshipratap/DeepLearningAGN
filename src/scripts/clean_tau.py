@@ -5,7 +5,7 @@ import numpy as np
 
 
 df_MSE = pd.read_csv(
-    '/Users/SnehPandya/Desktop/DeepLearningAGN/data/2020-05-29Mass_nll_b1_v2_matched.csv', index_col=0)
+    '/Users/SnehPandya/Desktop/DeepLearningAGN/data/2020-05-26Mass_nll_b1_matched.csv', index_col=0)
 df_smoothL1 = pd.read_csv('/Users/SnehPandya/Desktop/DeepLearningAGN/data/2020-06-24Mass_smoothL1_b1_err_matched.csv',index_col=0)
 
 
