@@ -74,7 +74,7 @@ class DataAnalysis():
         plt.errorbar(self.df_X, self.df_Y, yerr=self.df_ERROR,
                      ls='', ecolor='grey', alpha=.2, zorder=0)
         line = plt.plot(self.df_X, self.df_X, color='blue', zorder=2)
-        plt.title(str(self.PATH))
+        plt.title('Mass ground truth vs Mass Prediction')
         plt.xlabel(str(self.X))
         plt.ylabel(str(self.Y))
         plt.legend((scatter, line), labels=('Ground truth', 'NN prediction'))
@@ -83,8 +83,8 @@ class DataAnalysis():
     def joint_plot(self):
         sns.jointplot(self.df_X, self.df_Y, color='darkblue', kind='reg',
                   scatter_kws={'s': 10, 'alpha': .5}, line_kws={'color': 'black'})
-        plt.xlim(7,10.5)
-        plt.ylim(7,10)
+        # plt.xlim(7,10.5)
+        # plt.ylim(7,10)
         plt.xlabel('Mass Ground Truth')
         plt.ylabel('Mass Prediction')
         plt.annotate('Pearson = ' + str(self.pearson())[0:6] + '\nSpearman = ' + str(self.spearman())[0:6] + '\nP-Value = ' + str(self.pvalue())[0:6], xy=(.1, .9),
@@ -93,17 +93,17 @@ class DataAnalysis():
 ### end of class ###
 
 
-path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/data/merged_simulated2.csv'
+path_to_csv = '/Users/SnehPandya/Desktop/DeepLearningAGN/data/prediction_table_2/best_model.csv'
 ground_truth = 'Mass_ground_truth'
 prediction = 'Mass_prediction'
-error = 'z_ground_truth'
+error = 'Mass_error'
 
 NN_results = DataAnalysis(path_to_csv, ground_truth, prediction, error)
-NN_results.pearson()
-NN_results.spearman()
-NN_results.RMSE()
-NN_results.OLF(1)
-NN_results.OLF(2)
-NN_results.mean_error()
+# NN_results.pearson()
+# NN_results.spearman()
+# NN_results.RMSE()
+# NN_results.OLF(1)
+# NN_results.OLF(2)
+# NN_results.mean_error()
 NN_results.plot()
 NN_results.joint_plot()
