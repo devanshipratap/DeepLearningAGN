@@ -38,6 +38,14 @@ The process of retrieving the expanded catalog of light curves is explained in d
 `src/data/dr14_LC.csv`
 Data from RichardsGroup light curve catalog.  ML feature extraction pipeline doesn't use full light curves. The colors and bands in this data are directly from point-spread function (PSF) magnitudes.
 
+`src/data/LCs/`
+Stripe 82 light curves from Richards Group LSST_training repository.
+
+`src/data/QSO_S82`
+Stripe 82 light curves from University of Washington catalog.
+
+### Data Preprocessing
+
 `src/notebooks/dr7_dr14_tutorial.ipynb`
 Retrieve DR7/DR14 catalog and relevant information.  Clean unphysical and high-error AGN SMBH mass estimates.  Visualize data from the catalog.
 Outputs:
@@ -57,15 +65,15 @@ Get SDSS Stripe 82 light curves (UWashington) and clean it. Generate a .csv file
 To match the Stripe 82 (UWashington) and the DR7 catalog data to get most relevant information. Generate a .csv file of matched data.
 
 `src/scripts/light_curve_to_image_full.py`: Convert SDSS Stripe 82 light curves to images as .npy files to be readable by neural network.
+
 <!--
 `src/scripts/split_data.py`: Module to split data into training and testing sets.
 
 `src/scripts/random_reject.py`: Script to randomly reject data points from light curve files and generate new numpy files.  Used to test lower-end benchmark of when network stops performing well. -->
 
-
-
 ### Deep learning
-`src/notebooks/AGNet_FNN.py`: AGNet FNN architecture.  Uses preprocessed data and extracted features.  Trained on PSF magnitudes from RichardsGroup light curves and DR14 masses as ground truth. 
+
+`src/notebooks/AGNet_FNN.py`: AGNet FNN architecture.  Uses preprocessed data and extracted features.  Trained on PSF magnitudes from RichardsGroup light curves and DR14 masses as ground truth.
 
 `src/scripts/neural_network.py` : Our convolutional neural network for predicting black hole mass
 
